@@ -1,1 +1,433 @@
-more code
+<!DOCTYPE HTML>
+<!--
+	Ion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+{% load staticfiles %}
+
+<html>
+	<head>
+		<title>Job Fair Engineers</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="{% static "js/jquery.min.js" %}"></script>
+		<script src="{% static "js/skel.min.js" %}"></script>
+		<script src="{% static "js/skel-layers.min.js" %}"></script>
+
+		<script src="{% static "js/ajax.js" %}"></script>
+
+		<script src="{% static "js/tinymce/tinymce.min.js" %}"></script>
+
+		<!--<script src="{% static "js/init.js" %}"></script>-->
+		<noscript>
+			<link rel="stylesheet" href="{% static "css/skel.css" %}" />
+			<link rel="stylesheet" href="{% static "css/style.css" %}" />
+			<link rel="stylesheet" href="{% static "css/style-xlarge.css" %}" />
+		</noscript>
+
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-69491284-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+		<script>
+			
+			(function($) {
+
+				skel.init({
+					reset: 'full',
+					breakpoints: {
+			
+						// Global.
+							global: {
+								range: '*',
+								href: '{% static "css/style.css" %}',
+								containers: 1400,
+								grid: {
+									gutters: {
+										vertical: '4em',
+										horizontal: 0
+									}
+								}
+							},
+
+						// XLarge.
+							xlarge: {
+								range: '-1680',
+								href: '{% static "css/style-xlarge.css" %}',
+								containers: 1200
+							},
+
+						// Large.
+							large: {
+								range: '-1280',
+								href: '{% static "css/style-large.css" %}',
+								containers: 960,
+								grid: {
+									gutters: {
+										vertical: '2.5em'
+									}
+								},
+								viewport: {
+									scalable: false
+								}
+							},
+
+						// Medium.
+							medium: {
+								range: '-980',
+								href: '{% static "css/style-medium.css" %}',
+								containers: '90%',
+								grid: {
+									collapse: 1
+								}
+							},
+
+						// Small.
+							small: {
+								range: '-736',
+								href: '{% static "css/style-small.css" %}',
+								containers: '90%',
+								grid: {
+									gutters: {
+										vertical: '1.25em'
+									}
+								}
+							},
+
+						// XSmall.
+							xsmall: {
+								range: '-480',
+								href: '{% static "css/style-xsmall.css" %}',
+								grid: {
+									collapse: 2
+								}
+							}
+
+					},
+					plugins: {
+						layers: {
+				
+							// Config.
+								config: {
+									transform: true
+								},
+				
+							// Navigation Panel.
+								navPanel: {
+									animation: 'pushX',
+									breakpoints: 'medium',
+									clickToHide: true,
+									height: '100%',
+									hidden: true,
+									html: '<div data-action="moveElement" data-args="nav"></div>',
+									orientation: 'vertical',
+									position: 'top-left',
+									side: 'left',
+									width: 250
+								},
+
+							// Navigation Button.
+								navButton: {
+									breakpoints: 'medium',
+									height: '4em',
+									html: '<span class="toggle" data-action="toggleLayer" data-args="navPanel"></span>',
+									position: 'top-left',
+									side: 'top',
+									width: '6em'
+								}
+
+						}
+					}
+				});
+
+				$(function() {
+		
+					// jQuery ready stuff.
+		
+				});
+
+			})(jQuery);
+			
+			$(document).ready(function(){
+				$('a[href^="#"]').on('click',function (e) {
+					e.preventDefault();
+
+					var target = this.hash;
+					var $target = $(target);
+
+					$('html, body').stop().animate({
+					'scrollTop': $target.offset().top
+					}, 900, 'swing', function () {
+					window.location.hash = target;
+					});
+				});
+			});
+		</script>
+		{% block additionalScript %}
+			<script></script>
+		{% endblock %}
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="{% url "www.views.index" %}">JOB fair</a></h1>
+				<nav id="nav">
+					{% block menu %}
+					<ul>
+						<li><a href="{% url 'www.views.infoJobFair' %}">A propos</a></li>
+						<li><a href="{% url "www.views.inscription" %}" class="button special">S'inscrire</a></li>
+					</ul>
+					{% endblock %}
+				</nav>
+			</header>
+		{% block content %}
+		<!-- Banner -->
+			<section id="banner">
+				<div class="blackBox">
+				<div class="inner">
+					<h2>JobFair Engineers</h2>
+					<p>Venez découvrir les sociétés de demain <br>les 8 et 9 mars 2017.</p>
+					<ul class="actions">
+						<li><a href="{% url "www.views.profile" %}" class="button big special">Etudiants</a></li>
+						<li><a href="{% url "www.views.presentationEntreprise" %}" class="button big alt">Entreprises</a></li>
+					</ul>
+				</div>
+				</div>
+			</section>
+			
+					<div id="menu_info">
+				<span id="nav_menu">
+						<a href="#presentation"> Présentation </a>
+						<a href="#masters"> Masters </a>
+						<a href="#formules"> Formules </a>
+						<a href="#pratique"> Informations Pratiques </a>
+				</span>
+			</div>
+
+			<section id="presentation" class="wrapper style1">
+				<header class="major">
+					<h2>Présentation</h2>
+				</header>
+				<div class="container">
+					<p>
+						Cette année encore, l’Ecole polytechnique de Bruxelles et l'Ecole Interfacultaire des Bioingénieurs de l'ULB organise leur Job fair les <b>mercredi 8 et jeudi 9 mars 2017 à l’ULB</b>. Il s’agit d’une occasion unique et privilégiée de rencontrer l’ensemble des étudiants de master des deux facultés lors d’un unique rendez-vous. La nouvelle édition de la Job Fair Engineers (anciennement Forum de l'Emploi) constitue une occasion privilégiée pour les entreprises de se faire connaître auprès des étudiants de 4ème et 5ème année et donc de rencontrer les futurs ingénieurs de l'Université Libre de Bruxelles.
+					</p>
+					<p>
+						Pour la quatrième année consécutive, l'Ecole Polytechnique et l'Ecole Interfacultaire des Bioingénieurs de l'ULB se réunissent pour vous permettre, lors d'un unique rendez-vous, de rencontrer les futurs ingénieurs civils et les bioingénieurs de l'Université Libre de Bruxelles (pour plus d'informations concernant la formation d'ingénieur civil et de bioingénieur nous vous invitons à consulter la section <a href="#masters" > Nos masters </a>).
+					</p>
+					<p>
+						Pour satisfaire le plus grand nombre d'entreprises et d'étudiants, la Job Fair propose également différentes <a href="#formules" >formules </a> s’adaptant aux besoins des sociétés de différentes tailles (multinationales, PME et ONG) et à leurs attentes. Parmi les services accessibles, nous proposons l’accès en ligne au CV des étudiants de master, une présentation de 15 minutes pendant la job fair et d’autres. Vous trouverez tous les détails concernant les différentes formules en consultant la section Formules. De plus, dans le cadre de cet événement, une série de conférences ayant pour but de préparer les étudiants à leur début dans le monde professionnel sera organisée au premier quadrimestre académique. Si vous êtes intéressé par la participation à ce type d’événements, veuillez nous contacter par e-mail à l'adresse <a href="mailto:info@jobfair.be"> info@jobfair.be </a>.
+					</p>
+					<p>
+						Par ailleurs, et comme lors de nos précédentes éditions, vous pourrez rencontrer lors de la Job Fair les étudiants de 4ème année à la recherche d'un stage en entreprise ou d'informations quant aux perspectives d'avenir qui s'offrent à eux.
+					</p>
+					<p>
+						Vous pouvez désormais vous inscrire sur la plateforme et à la JobFair via l'onglet <a href="{% url "www.views.inscription" %}">s'inscrire</a>.
+					</p>
+					<p>
+						Nous sommes à votre entière disposition pour tout renseignement ou question complémentaire et nous vous invitons à nous contacter (par téléphone au +32(0) 491 07 92 44 ou par courriel à l'adresse <a href="mailto:info@jobfair.be"> info@jobfair.be </a>).
+					</p>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section class="wrapper style2" id="masters">
+				<header class="major">
+					<h2>Nos masters</h2>
+				</header>
+				<div class="container">
+					<p>L'Ecole Polytechnique et l’Ecole Interfacultaire de Bioingénieurs proposent une formation pointue qui se décline en différents masters:</p>
+					<li><a href="http://www.ulb.ac.be/facs/polytech/masters-MasterArchitecte.html"  target="_blank" >Master en INGENIEUR CIVIL ARCHITECTE </a></li>
+					<li><a href="http://www.ulb.ac.be/facs/polytech/masters-MasterCC.html"  target="_blank"  > Master en INGENIEUR CIVIL DES CONSTRUCTIONS </a></li>
+					<li><a href="http://www.ulb.ac.be/facs/polytech/masters-MasterElec.html"  target="_blank"> Master en INGENIEUR CIVIL ELECTRICIEN </a></li>
+					<li><a href="http://www.ulb.ac.be/facs/polytech/masters-MasterElectMec.html"  target="_blank"> Master en INGENIEUR CIVIL ELECTROMECANICIEN </a></li>
+					<li><a href="http://www.ulb.ac.be/facs/polytech/masters-MasterElectMecGest.html"  target="_blank"> Master en INGENIEUR CIVIL ELECTROMECANICIEN, GESTION ET TECHNOLOGIES </a></li>
+					<li><a href="http://www.ulb.ac.be/facs/polytech/masters-MasterChimie.html"  target="_blank"> Master en INGENIEUR CIVIL EN CHIMIE ET SCIENCES DES MATERIAUX </a></li>
+					<li><a href="http://www.ulb.ac.be/facs/polytech/masters-MasterPhys.html"  target="_blank"> Master en INGENIEUR CIVIL PHYSICIEN </a></li>
+					<li><a href="http://www.ulb.ac.be/facs/polytech/masters-MasterInfor.html"  target="_blank"> Master en INGENIEUR CIVIL INFORMATICIEN </a></li>
+					<li><a href="http://www.ulb.ac.be/facs/polytech/masters-MasterBiomed.html"  target="_blank"> Master en INGENIEUR CIVIL BIOMEDICAL </a></li>
+					<li><a href="http://banssbfr.ulb.ac.be/PROD_frFR/bzscrse.p_disp_prog_detail?term_in=201314&prog_in=MA-IRBC&lang=FRENCH"  target="_blank"> Master en BIOINGENIEUR : CHIMIE ET BIO-INDUSTRIES </a></li>
+					<li><a href="http://banssbfr.ulb.ac.be/PROD_frFR/bzscrse.p_disp_prog_detail?term_in=201314&prog_in=MA-IRBA&lang=FRENCH"  target="_blank"> Master en BIOINGENIEUR : SCIENCES AGRONOMIQUES </a></li>
+					<li><a href="http://banssbfr.ulb.ac.be/PROD_frFR/bzscrse.p_disp_prog_detail?term_in=201314&prog_in=MA-IRBE&lang=FRENCH"  target="_blank"> Master en BIOINGENIEUR : SCIENCES ET TECHNOLOGIES DE L'ENVIRONNEMENT </a></li>
+					<br><br>
+					<p>Nous vous invitons à prendre connaissance des masters proposés à la Brussels Faculty of Engineering - BRUFACE. Il s'agit du nouveau programme de Master en commun avec la VUB, donné entièrement en anglais.</p>
+					<li><a href="http://www.bruface.eu/EN/Master_Programmes/Architectural_Engineering/"  target="_blank" >Master in ARCHITECTURAL ENGINEERING </a></li>
+					<li><a href="http://www.bruface.eu/EN/Master_Programmes/Chemical_and_Materials_Engineering/"  target="_blank"  > Master in CHEMICAL AND MATERIALS ENGINEERING </a></li>
+					<li><a href="http://www.bruface.eu/EN/Master_Programmes/Civil_Engineering/"  target="_blank"  > Master in CIVIL ENGINEERING </a></li>
+					<li><a href="http://www.bruface.eu/EN/Master_Programmes/Electromechanical_Engineering/"  target="_blank"> Master in ELECTROMECHANICAL ENGINEERING </a></li>
+					<li><a href="http://www.bruface.eu/EN/Master_Programmes/Electronics_and_Information_Technology_Engineering/"  target="_blank"> Master in ELECTRONICS AND INFORMATION TECHNOLOGY ENGINEERING </a></li>
+
+
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="formules" class="wrapper style1">
+				<header class="major">
+					<h2>Nos formules</h2>
+				</header>
+				<div class="container">
+					<h1> Vous souhaitez être présent à la JobFair </h1>
+					<br>
+					<p><b> | Vous êtes une Multinationale - Grande entreprise (1500€)</b></p>
+					Cette formule comprend :
+					<ul>
+						<li> L'accès à notre nouvelle plateforme de CV en ligne pendant une année. </li>
+						<li> Le CV-Book en version papier regroupant les CV’s des étudiants de MA2. </li>
+						<li> Deux pages en vis à vis dans la brochure des entreprises, remise gratuitement aux étudiants. </li>
+						<li> Un stand de 3m sur 2m durant une journée.</li>
+						<li> Trois slides dans la présentation PowerPoint défilant en permanence sur écran géant toute la journée. </li>
+						<li> L’affichage du logo de votre entreprise sur notre site internet <a href="http://www.jobfair.be"  target="_blank"> www.jobfair.be </a>dès la confirmation de votre réservation. </li>
+						<li> Une connexion internet (WiFi) durant la journée. </li>
+						<li> Un lunch, un 16 heures et des boissons à volonté. </li>
+					</ul>
+				<p>	Options : </p>
+					<ol>
+						<li> La formule ci-dessus avec un workshop** d'1 heure 45 : + 200 € </li>
+						<li> Le CV-Book version papier regroupant les CV des étudiants de MA1 : + 200 € </li>
+						<br>
+						** Pour plus d'information sur le workshop <a href="#pratique"> consultez la section information pratiques. </a>
+					</ol>
+					<br>
+					<p><b> | Vous êtes une PME* (900€)</b></p>
+					Cette formule comprend :
+					<ul>
+						<li> L'accès à notre nouvelle plateforme de CV en ligne pendant une année. </li>
+						<li> Le CV-Book version papier regroupant les CV’s des étudiants de MA2. </li>
+						<li> Deux pages en vis à vis dans la brochure des entreprises, remise gratuitement aux étudiants. </li>
+						<li> Un stand de 2m sur 2m durant la journée.</li>
+						<li> Trois slides dans la présentation PowerPoint défilant en permanence sur écran géant toute la journée. </li>
+						<li> L’affichage du logo de votre entreprise sur notre site internet <a href="http://www.jobfair.be"  target="_blank"> www.jobfair.be </a>dès la confirmation de votre réservation. </li>
+						<li> Une connexion internet (WiFi) durant la journée. </li>
+						<li> Un lunch, un 16 heures et des boissons à volonté. </li>
+					</ul>
+				<p>	Options : </p>
+					<ol>
+						<li> La formule ci-dessus avec un workshop** d'1 heure 45 : + 100 € </li>
+						<li> Le CV-Book regroupant les CV des étudiants de MA1 : + 200 € </li>
+					</ol>
+
+					* Une PME doit remplir les deux conditions suivantes :
+					<ol>
+						<li> L'effectif doit être strictement inférieur 250 personnes. </li>
+						<li> Le chiffre d'affaires doit être inférieur à 50 Mio€ ou le total bilantaire inférieur à 43 Mio€.</li>
+						<br>
+						** Pour plus d'information sur le workshop <a href="#pratique"> consultez la section information pratiques. </a>
+					</ol>
+					<br>
+					<p><b> | Vous êtes une ONG (100€ - Caution)</b></p>
+					Cette formule comprend :
+					<ul>
+						<li> L'accès à notre nouvelle plateforme de CV en ligne pendant une année. </li>
+						<li> Deux pages en vis à vis dans la brochure des entreprises, remise gratuitement aux étudiants. </li>
+						<li> Un stand de 2m sur 2m durant la journée. </li>
+						<li> Trois slides dans la présentation PowerPoint défilant en permanence sur écran géant toute la journée. </li>
+						<li> L’affichage du logo de votre entreprise sur notre site internet <a href="http://www.jobfair.be"  target="_blank"> www.jobfair.be </a>dès votre confirmation de réservation. </li>
+						<li> Une connexion internet (WiFi) durant la journée. </li>
+						<li> Un petit-déjeuner, un lunch et des boissons à volonté. </li>
+					</ul>
+					<p>Le montant demandé sert de confirmation d'inscription. Il sera rendu après la participation de l'ONG en question à la Job Fair.</p>
+					<br><br><br>
+					<h1> Vous ne souhaitez pas être présent à la JobFair </h1>
+					<br>
+					<p><b> | Formule pour Multinationales et grandes entreprises (600€)</b></p>
+					Cette formule comprend :
+					<ul>
+						<li> L'accès à notre nouvelle plateforme de CV en ligne pendant une année. </li>
+						<li> Le CV-Book regroupant les CV’s des étudiants de MA2.</li>
+						<li> Deux pages en vis à vis dans la brochure des entreprises, remise gratuitement aux étudiants. </li>
+					</ul>
+					Options :
+					<ol>
+						<li> L'envoi d'une lettre (rédigée par vos soins) à tous les étudiants de MA2, la semaine précédant la Job Fair : + 200€. </li>
+						<li> Le CV-Book regroupant les CV's des étudiants de MA1 : + 200€. </li>
+					</ol>
+					<br>
+					<p><b> | Formule pour PME* et Ecoles (300€)</b></p>
+					Cette formule comprend:
+					<ul>
+						<li> L'accès à notre nouvelle plateforme de CV en ligne pendant une année. </li>
+						<li> Le CV-Book regroupant les CV’s des étudiants de MA2. </li>
+						<li> Deux pages en vis à vis dans la brochure des entreprises, remise gratuitement aux étudiants. </li>
+					</ul>
+					Options :
+					<ol>
+						<li> L'envoi d'une lettre (rédigée par vos soins) à tous les étudiants de MA2, la semaine précédant la Job Fair : + 100€.</li>
+						<li> Le CV-Book regroupant les CV des étudiants de MA1 : + 100€.</li>
+					</ol>
+
+					* Une PME doit remplir les deux conditions suivantes :
+					<ol>
+						<li> L'effectif doit être strictement inférieur 250 personnes. </li>
+						<li> Le chiffre d'affaires doit être inférieur à 50 Mio€ ou le total bilantaire inférieur à 43 Mio€.</li>
+					</ol>
+				</div>
+			</section>
+
+
+		<!-- Three -->
+			<section id="pratique" class="wrapper style2">
+				<header class="major">
+					<h2>Informations pratiques</h2>
+				</header>
+				<div class="container">
+					<p>L’édition 2016-2017 de la Job Fair se déroulera les 8 et 9 mars 2017 sur le campus du Solbosch de l’Université Libre de Bruxelles dans les locaux du Hall de Sociologie (bâtiment S).</p>
+					<p>Les étudiants sont attendus à partir de 11h00. La journée se termine à 17h00.</p>
+					<p>Les workshops ont pour objectif d’établir un premier contact très personnel entre l’entreprise et les étudiants. Ils se déroulent dans des salles privées de 9h15 à 11h00, soit avant l’ouverture de la Job Fair. Durant le workshop un petit déjeuner sera disponible pour les entreprises et les étudiants participants. Pendant la période allouée au workshop l’entreprise pourra présenter, de manière interactive, les aspects du travail qu’elle propose afin de, par exemple, montrer ce qui est attendu en son sein auprès des nouveaux ingénieurs.
+					</p>
+					<p>De manière à assurer la présence d’un nombre suffisant d’étudiants, il est demandé à l’entreprise intéressée d’envoyer au plus tard pour le 31/01/2017 le sujet de son Workshop afin de laisser le temps aux étudiants de s’y inscrire. Si à la date du 28/02/2017 le nombre d’étudiants inscrits est inférieur à dix, une proposition d’annulation de workshop sera envoyée à l’entreprise. L’annulation n’est en aucun cas obligatoire mais elle donnera lieu à un remboursement total de la somme liée à cette option.
+					</p>
+					<br>
+					<p> <b> | Adresse de l'entrée principale : </b>
+					<br>Bâtiment S, Avenue Jeanne 44, 1050 Bruxelles</p>
+					<img src="{% static "images/pratique1.png" %}"  />
+					<br> <br>
+					<p> <b> | Plan d'accès au campus du Solbosch: </b> </p>
+					<img src="{% static "images/pratique2.png" %}"  />
+				</div>
+			</section>
+		{% endblock %}		
+			
+		<!-- Footer -->
+			<footer id="footer">
+				{% block footer %}
+				<div class="container">
+					<div class="row double">
+						<div class="6u">
+							<h2>Adresse courrier</h2>
+							<p>Cercle Polytechnique ASBL - Job Fair</p>
+							<p>av. F. Roosevelt 50 cp 165,</p>
+							<p>1050 Bruxelles</p>
+						</div>
+						<div class="6u">
+							<h2>Contactez-nous</h2>
+							<p>N'hésitez pas à nous contacter pour toute information supplémentaire via les canaux suivants :</p>
+							<ul>
+								<li> Par courriel à l'adresse : <a href="mailto:info@jobfair.be">info@jobfair.be </a></li>
+								<li>Par téléphone au numéro : +32(0) 491 07 92 44</li>
+							</ul>
+						</div>
+					</div>
+					<ul class="copyright">
+						<li>&copy;Untitled. All rights reserved.</li>
+						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+						<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+						<li><a href="{% url "www.views.admin" %}">Admin</a></li>
+					</ul>
+				</div>
+				{% endblock %}
+			</footer>
+
+	</body>
+</html>
