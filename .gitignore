@@ -1,2 +1,4 @@
 $ cat .gitignore
-# test comment
+# test comment2
+
+#some more comment
